@@ -1,0 +1,32 @@
+<div class="banner-w3agile">
+  <div class="container">
+    <h3>
+      <span>
+        <%= link_to t(".new_workspace"), new_workspace_path,
+        class: "btn btn-primarys"%>
+      </span>
+    </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2><%= t ".exam_list" %></h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="info">
+          <th class="created_at">Name</th>
+          <th class="created_at">Show</th>
+
+        </tr>
+      </thead>
+      <tbody id = "body_table_data">
+        <% @workspaces.each do |workspace| %>
+          <tr>
+            <td><%= workspace.name %></td>
+            <td><%= link_to "show", workspace_path(workspace.id),
+              id: "show_position" %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

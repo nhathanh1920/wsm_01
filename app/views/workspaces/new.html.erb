@@ -1,0 +1,31 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1><%= yield(:modal_title) %></h1>
+    </div>
+    <%= form_for @workspace , remote: true do |f| %>
+      <div class="modal-body">
+        <div class="form_errors">
+          <%= render "shared/error_messages", object: @workspace %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :number_of_columns %>
+          <%= f.text_field :number_of_columns, class: "form-control" %>
+         </div>
+         <div class="form-group">
+          <%= f.label :number_of_rows %>
+          <%= f.text_field :number_of_rows, class: "form-control" %>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <span class="pull-right">
+          <%= f.submit t("creates"), class: "btn btn-primary" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>

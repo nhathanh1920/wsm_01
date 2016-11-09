@@ -1,0 +1,7 @@
+<% @positions.each do |position| %>
+{
+    "name": "<%= @position.name.to_json %>",
+    "colum": "<%= @position.number_of_columns.to_json %>",
+    "row": "<%= @position.number_of_rows.to_json %>"
+}
+<% end %>
