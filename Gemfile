@@ -20,11 +20,13 @@ gem "jbuilder", "~> 2.5"
 gem "config"
 gem "bootstrap-glyphicons"
 gem "simple_form"
+gem "underscore-rails"
 gem "devise"
 gem "cancancan"
 gem "jquery-easing-rails"
 gem "jquery-countdown-rails"
 gem "figaro"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "byebug", platform: :mri
