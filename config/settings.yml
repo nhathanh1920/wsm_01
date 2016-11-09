@@ -1,0 +1,4 @@
+role:
+  user: user
+  admin: admin
+  ws_admin: ws_admin
