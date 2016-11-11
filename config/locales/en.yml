@@ -3,6 +3,8 @@ en:
   home: "HOME"
   contact: "CONTACT"
   help: "HELP"
+  form_error_messages: "Form Error Messages"
+  error_text: "Error text"
   static_pages:
     home:
       calender: "Calender"
@@ -73,3 +75,36 @@ en:
     sessions:
       new:
         login: "Login"
+  flash:
+    success:
+      created_workspace: "Created workspace successfully!"
+      deleted_workspace: "Deleted workspace successfully!"
+      updated_workspace: "Update workspace successfully!"
+    danger:
+      created_workspace: "Created subject failed!"
+      deleted_workspace: "Deleted workspace failed!"
+      updated_workspace: "Update workspace failed!"
+      workspace_not_found: "Workspace is not found!"
+  admin:
+    workspaces:
+      create_workspace: "Create_workspace"
+      delete_workspace: "Are you sure delete workspace?"
+      index:
+        create_workspace: "create workspace"
+        workspace_list: "Workspace List"
+        index: "Index"
+        name: "Name"
+        description: "Description"
+        action: "Action"
+      list_workspaces:
+        edit: "Edit"
+        delete: "Delete"
+      new:
+        create_workspace: "Create workspace"
+        create_button: "Create"
+      edit:
+        save_button: "Save"
+        edit_workspace: "Edit workspace"
+      form:
+        create: "Create"
+
