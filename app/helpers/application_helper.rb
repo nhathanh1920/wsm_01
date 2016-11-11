@@ -17,4 +17,9 @@ module ApplicationHelper
     index + (objects.current_page - Settings.each_index) *
       Settings.pagination.size + Settings.each_index
   end
+
+  def paginate objects, options = {}
+    options.reverse_merge! theme: "twitter-bootstrap-3"
+    super objects, options
+  end
 end
