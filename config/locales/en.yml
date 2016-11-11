@@ -7,7 +7,15 @@ en:
   help: "HELP"
   form_error_messages: "Form Error Messages"
   error_text: "Error text"
-  watchers: "WATCHERS"
+  login: "LOGIN"
+  managers: "Managers"
+  manage_users: "Users"
+  workspaces: "Workspaces"
+  manage_departments: "Departments"
+  manage_workspace: "My workspace"
+  user_workspace: "Our workspace"
+  manage_skills: "Skills"
+  manage_projects: "Projects"
   static_pages:
     home:
       calender: "Calender"
@@ -71,6 +79,10 @@ en:
       about_us: "ABOUT US"
       design_by: "© 2016 Gretong. All Rights Reserved | Design by NNK"
   devise:
+    passwords:
+      new:
+        forgot_password: "Forgot your password?"
+        submit: "Send me reset password instructions"
     registrations:
       new:
         sign_up: "Sign Up"
@@ -96,7 +108,7 @@ en:
     index:
       form: "Form :"
       name: "Name"
-      new_project: "New Subject"
+      new_project: "New Project"
       abbrevation: "Abbrevation"
       end_date: "End Date"
       start_date: "Start Date"
@@ -150,16 +162,18 @@ en:
         name: "Name"
         email: "Email"
         workspace: "Workspace"
+        company: "Company"
         created_at: "Created at"
         role: "Role"
         send_mail: "Send Mail"
       users_list:
-        title: "Users list"
-        new_user: "New user"
+        title: "Manager list"
+        new_user: "New Manager"
         index_num: "Index"
         name: "Name"
         email: "Email"
         workspace: "Workspace"
+        company: "Company"
         role: "Role"
         created_at: "Created at"
         actions: "Actions"

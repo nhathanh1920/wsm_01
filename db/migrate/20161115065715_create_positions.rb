@@ -8,6 +8,7 @@ class CreatePositions < ActiveRecord::Migration[5.0]
       t.integer :status, default: 3
       t.text :description
       t.references :workspace, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

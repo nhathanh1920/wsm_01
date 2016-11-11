@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.newest.page(params[:page]).per Settings.users_paginates
+    @users = User.newest.page(params[:page]).
+      per Settings.users_paginates
   end
 
   def show
