@@ -1,7 +1,6 @@
 role:
   user: user
-  admin: admin
-  ws_admin: ws_admin
+  manager: manager
 each_index: 1
 maximum:
   projects:
@@ -19,6 +18,11 @@ pagination:
   project_per_page : 10
   per_page: 10
   size: 10
+  manager: manager
 each_user: 1
 users_paginates: 30
 default_password: "123456"
+gender:
+  female: female
+  male: male
+each_user: 1

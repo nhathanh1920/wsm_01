@@ -1,0 +1,33 @@
+<% @users.each_with_index do |user, index| %>
+  <tr>
+    <td class="center"><%= increase_user index, @users %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td>
+      <% if user.position %>
+        <%= user.position.workspace.name %>
+      <% end %>
+    </td>
+    <td><%= user.department %></td>
+    <td>
+      <% if user.position %>
+        <%= user.position.desk_code %>
+      <% end %>
+    </td>
+    <td><%= user.role.capitalize %></td>
+    <td><%= l user.created_at, format: :date_month_year_concise %></td>
+    <td class="center">
+      <%= link_to image_tag("view.png", class:"img-responsi"),
+        user_path(user) %>
+    </td>
+    <td class="center">
+      <%= link_to image_tag("edit.png", class:"img-responsi"),
+        edit_user_path(user) %>
+    </td>
+    <td class="center">
+      <%= link_to image_tag("deleteuser.png", class:"img-responsi"),
+        user_path(user), method: :delete, data:
+        {confirm: t(".delete_user_confirmation")} %>
+    </td>
+  </tr>
+<% end %>
