@@ -11,4 +11,6 @@ class User < ApplicationRecord
 
   enum gender: {female: 0, male: 1, other: 3}
   enum role: {manager: 0, user: 1}
+
+  scope :newest, ->{order created_at: :desc}
 end

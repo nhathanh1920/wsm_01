@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def increase_user index, users
+    index + (users.current_page - Settings.each_user)*
+      Settings.users_paginates + Settings.each_user
+  end
+
   def full_title page_title = ""
     base_title = t "title"
     if page_title.empty?

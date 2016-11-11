@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root "static_pages#home"
   get "static_pages/help"
-  namespace :admin do
-    resources :workspaces
-  end
 
+  namespace :admin do
+    root "static_pages#home"
+    resources :workspaces
+    resources :users
+  end
 end
