@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :skills, through: :user_skills
 
   enum gender: {female: 0, male: 1, other: 3}
-  enum role: {admin: 0, user: 1}
+  enum role: {manager: 0, user: 1}
 end
