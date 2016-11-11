@@ -86,3 +86,11 @@ en:
       my_account: "MY ACCOUNT"
       about_us: "ABOUT US"
       design_by: "© 2016 Gretong. All Rights Reserved | Design by NNK"
+  devise:
+    registrations:
+      new:
+        sign_up: "Sign Up"
+        submit: "Submit"
+    sessions:
+      new:
+        login: "Login"
