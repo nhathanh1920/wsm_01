@@ -6,7 +6,7 @@ class Ability
     case user
     when User
       if user.manager?
-        can :manage, :all
+        can :manage, User, workspace_id: user.workspace_id
       else
         can [:read], User, id: user.id
       end
