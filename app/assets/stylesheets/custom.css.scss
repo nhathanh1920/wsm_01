@@ -5790,3 +5790,13 @@ input[type=month] {
   width: 60px;
   height: 60px;
 }
+#result_search{
+  position: absolute;
+  z-index: 9999;
+}
+#user{
+  display: none;
+}
+#deskcode{
+  display: none;
+}

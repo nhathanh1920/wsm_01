@@ -23,6 +23,7 @@ class WorkspacesController < ApplicationController
 
   def show
     @positions = @workspace.positions
+    @positions_search = @positions.name_or_deskcode(params[:search])
   end
 
   def edit

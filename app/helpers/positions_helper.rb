@@ -2,7 +2,13 @@ module PositionsHelper
   def check_status position
     case
     when position.disabled?
-      "wall.png"
+      if position.name == "flower"
+        "flower.png"
+      elsif position.name == "bin"
+        "bin.png"
+      else
+        "wall.png"
+      end
     when position.freedesk?
       "freedesk.png"
     when position.staff?

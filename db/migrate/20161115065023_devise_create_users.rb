@@ -36,6 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.references :company, foreign_key: true
       t.references :department, foreign_key: true
 
+      t.references :workspace, foreign_key: true
+
       t.timestamps null: false
     end
 
