@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     resources :workspaces
     resources :users
   end
+  namespace :manager do
+    resources :workspaces
+    resources :positions
+  end
 end

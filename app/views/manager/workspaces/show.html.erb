@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <div class="table-responsive">
+      <table>
+        <% a = Settings.position_default %>
+        <% for i in 1..@positions.max.column%>
+          <tr>
+            <% for j in 1..@positions.max.row%>
+              <td class="td_position">
+                <% a += 1 %>
+                <% if @positions[a].freespace? %>
+                  <%= link_to image_tag("freespace.jpg", class: "img-position"),
+                    edit_manager_position_path(@positions[a].id),
+                    remote: true, class: "btn_ps" %>
+                <% elsif @positions[a].freedesk? %>
+                  <%= link_to image_tag("freedesk.png", class: "img-position"),
+                    edit_manager_position_path(@positions[a].id),
+                    remote: true, class: "btn_ps" %>
+                <% elsif @positions[a].staff? %>
+                  <%= link_to image_tag("staff.png", class: "img-position"),
+                    edit_manager_position_path(@positions[a].id),
+                    remote: true, class: "btn_ps" %>
+                <% else %>
+                  <%= link_to image_tag("wall.png", class: "img-position"),
+                    edit_manager_position_path(@positions[a].id),
+                    remote: true, class: "btn_ps" %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+      <div id="level-modal" class="modal fade"></div>
+    </div>
+    </div>
+  </div>
+</div>

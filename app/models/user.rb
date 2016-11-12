@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
-  belongs_to :position
   belongs_to :department
 
   has_many :project_members

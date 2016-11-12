@@ -7,6 +7,7 @@ class CreatePositions < ActiveRecord::Migration[5.0]
       t.string :desk_code
       t.integer :status, default: 3
       t.text :description
+      t.references :user, foreign_key: true
       t.references :workspace, foreign_key: true
 
       t.timestamps

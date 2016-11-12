@@ -1,0 +1,35 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1><%= yield(:modal_title) %></h1>
+    </div>
+    <%= simple_form_for [:manager, @workspace] , remote: true do |f| %>
+      <div class="modal-body">
+        <div class="form_errors">
+          <%= render "shared/error_messages", object: @workspace %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :number_of_columns %>
+          <%= f.number_field :number_of_columns, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :number_of_rows %>
+          <%= f.number_field :number_of_rows, class: "form-control" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="pull-right">
+          <%= f.submit yield(:submit_button), class: "btn btn-primary" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
