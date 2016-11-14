@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :abbreviation
       t.datetime :start_date
       t.datetime :end_date
+      t.references :workspace, foreign_key: true
 
       t.timestamps
     end

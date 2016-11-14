@@ -1,4 +1,4 @@
-class Admin::ProjectsController < ApplicationController
+class ProjectsController < ApplicationController
   before_action :load_project, except: [:index, :new, :create]
 
   def index
@@ -15,7 +15,7 @@ class Admin::ProjectsController < ApplicationController
   def create
     @project = Project.new project_params
     if @project.save
-      redirect_to admin_projects_path
+      redirect_to projects_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::ProjectsController < ApplicationController
   def update
     if @project.update_attributes project_params
       flash.now[:success] = t "flash.success.updated_project"
-      redirect_to admin_projects_path
+      redirect_to projects_path
     else
       flash.now[:danger] = t "flash.danger.updated_project"
       render :edit
@@ -37,7 +37,7 @@ class Admin::ProjectsController < ApplicationController
     else
       flash.now[:danger] = t "flash.danger.deleted_project"
     end
-    redirect_to admin_projects_path
+    redirect_to projects_path
   end
 
   private
@@ -50,7 +50,7 @@ class Admin::ProjectsController < ApplicationController
     @project = Project.find_by id: params[:id]
     unless @project
       flash.now[:danger] = t "flash.danger.project_not_found"
-      redirect_to admin_projects_path
+      redirect_to projects_path
     end
   end
 end
