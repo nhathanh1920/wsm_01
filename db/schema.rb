@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.integer  "column"
     t.integer  "row"
     t.string   "desk_code"
-    t.integer  "status"
+    t.integer  "status",                     default: 3
     t.text     "description",  limit: 65535
     t.integer  "workspace_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.index ["workspace_id"], name: "index_positions_on_workspace_id", using: :btree
   end
 
