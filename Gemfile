@@ -13,6 +13,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
+gem "bootstrap-kaminari-views"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "config"
@@ -26,6 +27,8 @@ gem "jquery-easing-rails"
 gem "jquery-countdown-rails"
 gem "figaro"
 gem "font-awesome-rails"
+gem "momentjs-rails", ">= 2.9.0"
+gem "bootstrap3-datetimepicker-rails", "~> 4.17.42"
 
 group :development, :test do
   gem "byebug", platform: :mri
