@@ -1,6 +1,6 @@
 <% @projects.each do |project| %>
   <tr>
-    <td><%= link_to project.name, [:admin, project] %></td>
+    <td><%= link_to project.name, project %></td>
     <td><%= project.abbreviation %></td>
     <td><%= l project.start_date, format: :short_date %></td>
     <td><%= l project.end_date, format: :short_date %></td>
@@ -8,13 +8,13 @@
       <div class="btn-group" role="group">
         <%= link_to image_tag("edit.png",
           class:"img-responsi"),
-          edit_admin_project_path(project), id: "edit_admin_project"%>
+          edit_project_path(project), id: "edit_admin_project"%>
       </div>
     </td>
     <td class="text-center">
       <div class="btn-group" role="group">
         <%= link_to image_tag("delete.png",
-          class:"img-responsi"), admin_project_path(project.id),
+          class:"img-responsi"), project_path(project.id),
           method: :delete, data: {confirm: t(".delete_project_confirm")}%>
       </div>
     </td>
