@@ -1,0 +1,72 @@
+<h1><% t "title" %></h1>
+<div class="row">
+  <div class="agiler">
+    <div class="main">
+      <%= tag(:br) %><%= tag(:br) %>
+        <div class="edit"><center><h4><%= t ".title" %></h4></center></div>
+      <%= tag(:br) %><%= tag(:br) %>
+      <div class="edit-form profile">
+        <div class="edit-form">
+          <%= simple_form_for @user do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <%= f.hidden_field :role %>
+            <% if current_user.manager? %>
+              <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, placeholder: t(".name") %>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, placeholder: t(".email") %>
+              </div>
+              <div class="form-group">
+                <%= f.label :gender %>
+                <%= f.select :gender, Settings.gender, {},
+                  {class: "form-control"} %>
+              </div>
+              <div class="form-group">
+                <%= f.label :birthday %>
+                <%= f.text_field :birthday, placeholder: t(".birthday") %>
+              </div>
+              <div class="form-group">
+                <%= f.label :role %>
+                <%= f.select :role, Settings.role, {},
+                  {class: "form-control"} %>
+              </div>
+            <% else %>
+              <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, disabled: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, disabled: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :gender %>
+                <%= f.select :gender, Settings.gender, {},
+                  {class: "form-control"} %>
+              </div>
+              <div class="form-group">
+                <%= f.label :birthday %>
+                <%= f.text_field :birthday, placeholder: t(".birthday") %>
+              </div>
+            <% end %>
+            <% if current_user == @user %>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation,
+                  class: "form-control" %>
+              </div>
+            <% end %>
+            <%= f.submit t(".submit"), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ en:
   help: "HELP"
   form_error_messages: "Form Error Messages"
   error_text: "Error text"
+  watchers: "WATCHERS"
   static_pages:
     home:
       calender: "Calender"
@@ -82,8 +83,9 @@ en:
       created_workspace: "Created workspace successfully!"
       deleted_workspace: "Deleted workspace successfully!"
       updated_workspace: "Update workspace successfully!"
-      created_user: "Create user successful"
-      deleted_user: "Delete user successful"
+      created_user: "Create user successful!"
+      deleted_user: "Delete user successful!"
+      updated_user: "Update user successful!"
     danger:
       created_workspace: "Created subject failed!"
       deleted_workspace: "Deleted workspace failed!"
@@ -168,4 +170,42 @@ en:
       short_date: "%d-%m-%Y"
       date_month_year_concise: "%d-%m-%y"
       date_time: "%Y-%m-%d %H:%M"
-
+  users:
+    index:
+      title: "Users"
+    show:
+      view: "View"
+      name: "Name"
+      workspace: "Workspace"
+      department: "Department"
+      position: "Position"
+      created_at: "Created at"
+      role: "Role"
+      send_mail: "Send mail"
+    new:
+      default_password: "123456"
+      default_cfpassword: "123456"
+      create_button: "Create"
+      cancel_button: "Cancel"
+    edit:
+      title: "Edit User Profile"
+      name: "Name"
+      email: "Email"
+      department: "Department"
+      position: "Position"
+      birthday: "Date of birth"
+      submit: "Submit"
+    users_list:
+      new_user: "New User"
+      title: "Users"
+      index_num: "Index"
+      name: "Name"
+      email: "Email"
+      workspace: "Workspace"
+      department: "Department"
+      position: "Position"
+      role: "Role"
+      created_at: "Created at"
+      actions: "Actions"
+    user_item:
+      delete_user_confirmation: "Are you sure?"
