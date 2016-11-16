@@ -4,6 +4,7 @@ class CreateDepartments < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :abbreviation
       t.text :description
+      t.references :company, foreign_key: true
 
       t.timestamps
     end

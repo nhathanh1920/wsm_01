@@ -1,5 +1,5 @@
 class Admin::WorkspacesController < ApplicationController
-  before_action :load_workspace, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @workspaces = Workspace.newest.page(params[:page]).
@@ -46,13 +46,5 @@ class Admin::WorkspacesController < ApplicationController
   def workspace_params
     params.require(:workspace).permit :name, :number_of_columns,
       :number_of_rows, :description
-  end
-
-  def load_workspace
-    @workspace = Workspace.find_by id: params[:id]
-    unless @workspace
-      flash.now[:danger] = t "flash.danger.deleted_workspace"
-      redirect_to admin_workspaces_path
-    end
   end
 end

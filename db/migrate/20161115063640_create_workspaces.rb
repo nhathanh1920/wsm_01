@@ -5,6 +5,7 @@ class CreateWorkspaces < ActiveRecord::Migration[5.0]
       t.integer :number_of_columns
       t.integer :number_of_rows
       t.text :description
+      t.references :company, foreign_key: true
 
       t.timestamps
     end

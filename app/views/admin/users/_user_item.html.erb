@@ -3,7 +3,7 @@
     <td class="center"><%= increase_user index, @users %></td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= user.position.workspace.name %></td>
+    <td><%= user.company.try :name %></td>
     <td><%= user.role.capitalize %></td>
     <td><%= l user.created_at, format: :date_month_year_concise %></td>
     <td class="center">

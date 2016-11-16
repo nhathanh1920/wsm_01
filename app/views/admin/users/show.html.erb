@@ -30,14 +30,12 @@
                   <td><%= @user.email %></td>
                 </tr>
                 <tr>
-                  <td><%= t ".workspace" %></td>
-                  <td><%= @user.workspace_id %></td>
+                  <td><%= t ".company" %></td>
+                  <td><%= @user.company.try :name %></td>
                 </tr>
                 <tr>
                   <td><%= t ".created_at" %></td>
-                  <td>
-                    <%= l @user.created_at, format: :date_time %>
-                  </td>
+                  <td><%= l @user.created_at, format: :date_time %></td>
                 </tr>
                 <tr>
                   <td><%= t ".role" %></td>

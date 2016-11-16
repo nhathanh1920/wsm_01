@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111012313) do
+ActiveRecord::Schema.define(version: 20161115065715) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -29,12 +29,20 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "abbreviation"
     t.text     "description",  limit: 65535
+    t.integer  "company_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["company_id"], name: "index_departments_on_company_id", using: :btree
   end
 
   create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,8 +53,10 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.integer  "status",                     default: 3
     t.text     "description",  limit: 65535
     t.integer  "workspace_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["user_id"], name: "index_positions_on_user_id", using: :btree
     t.index ["workspace_id"], name: "index_positions_on_workspace_id", using: :btree
   end
 
@@ -65,14 +75,18 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.string   "abbreviation"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "company_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["company_id"], name: "index_projects_on_company_id", using: :btree
   end
 
   create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_skills_on_company_id", using: :btree
   end
 
   create_table "user_skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -100,14 +114,14 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "position_id"
-    t.integer  "workspace_id"
+    t.integer  "company_id"
+    t.integer  "department_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["company_id"], name: "index_users_on_company_id", using: :btree
+    t.index ["department_id"], name: "index_users_on_department_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["position_id"], name: "index_users_on_position_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["workspace_id"], name: "index_users_on_workspace_id", using: :btree
   end
 
   create_table "workspaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -115,15 +129,22 @@ ActiveRecord::Schema.define(version: 20161111012313) do
     t.integer  "number_of_columns"
     t.integer  "number_of_rows"
     t.text     "description",       limit: 65535
+    t.integer  "company_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.index ["company_id"], name: "index_workspaces_on_company_id", using: :btree
   end
 
+  add_foreign_key "departments", "companies"
+  add_foreign_key "positions", "users"
   add_foreign_key "positions", "workspaces"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
+  add_foreign_key "projects", "companies"
+  add_foreign_key "skills", "companies"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
-  add_foreign_key "users", "positions"
-  add_foreign_key "users", "workspaces"
+  add_foreign_key "users", "companies"
+  add_foreign_key "users", "departments"
+  add_foreign_key "workspaces", "companies"
 end

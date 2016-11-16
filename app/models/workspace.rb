@@ -1,6 +1,7 @@
 class Workspace < ApplicationRecord
+  belongs_to :company
+
   has_many :positions, dependent: :destroy
-  has_many :projects
 
   validates :name, presence: true,
     length: {maximum: Settings.maximum.workspace.name}
