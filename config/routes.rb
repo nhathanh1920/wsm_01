@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "static_pages/help"
   resources :projects
+  resources :workspaces
+  resources :positions
 
   namespace :admin do
     root "static_pages#home"
-    resources :workspaces
     resources :users
   end
 

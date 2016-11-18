@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table id="myTable">
+          <% if @positions.present? %>
+            <% for i in 1..@workspace.number_of_columns %>
+              <tr>
+                <% for j in 1..@workspace.number_of_rows %>
+                  <td class="td_position_<%=i%>_<%=j%>">
+                    <% position= @positions.coordinates(i, j)[0] %>
+                    <%= link_to image_tag("#{check_status position}",
+                      class: "img-position"), edit_position_path(position),
+                      remote: true, class: "btn_ps" %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+        <div id="level-modal" class="modal fade"></div>
+      </div>
+    </div>
+  </div>
+</div>

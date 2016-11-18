@@ -32,6 +32,7 @@ gem "bootstrap3-datetimepicker-rails", "~> 4.17.42"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "pry"
 end
 
 group :development do
